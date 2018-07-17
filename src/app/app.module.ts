@@ -6,21 +6,24 @@ import {MatToolbarModule, /*MatDialogModule, MatCheckboxModule, MatDatepickerMod
   MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule,
 MatSlideToggleModule,MatProgressSpinnerModule*/} from '@angular/material'; 
 import {MatIconModule} from '@angular/material/icon';
-
+import { MatListModule } from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule, 
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
