@@ -1,6 +1,6 @@
 $lt-gray: #ddd;
-$background-dark: #512DA8;
-$background-light: #9575CD;
+$background-dark: rgb(247, 7, 67);
+$background-light: rgb(141, 48, 5);
 $background-pale: #D1C4E9;
 
 @mixin zero-margin($pad-up-down, $pad-left-right) {
@@ -16,4 +16,9 @@ $background-pale: #D1C4E9;
 }
 .tumps{
 width: 200px ;
+}
+$background-moredark: #4527A0;
+
+.active {
+    background: $background-moredark;
 }
