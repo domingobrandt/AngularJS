@@ -7,8 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms'; 
 import {MatToolbarModule,/* , MatDatepickerModule, ,
-  , MatRadioModule,  MatSliderModule,
-,MatProgressSpinnerModule*/} from '@angular/material'; 
+  , MatRadioModule,  MatSliderModule,*/} from '@angular/material'; 
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DishService } from './services/dish.service';
@@ -54,7 +54,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     MatDialogModule,
     FormsModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,
-    MatSelectModule,MatSlideToggleModule,ReactiveFormsModule
+    MatSelectModule,MatSlideToggleModule,ReactiveFormsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [DishService,PromotionService,LeaderService],
   entryComponents:[
