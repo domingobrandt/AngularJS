@@ -3,8 +3,8 @@ import { Dish } from './dish';
 export const DISHES: Dish[] = [
     {
         id: 0,
-        name: 'Uthappizza',
-        image: '/assets/images/uthappizza.png',
+        name: 'Shrimp with Spicy Tomato',
+        image: '/assets/images/ShrimpSpicy.jpg',
         category: 'mains',
         label: 'Hot',
         price: '4.99',
@@ -45,8 +45,8 @@ export const DISHES: Dish[] = [
     },
     {
         id: 1,
-        name: 'Zucchipakoda',
-        image: '/assets/images/zucchipakoda.png',
+        name: 'Tacomixsalad',
+        image: '/assets/images/eatersea.jpg',
         category: 'appetizer',
         label: '',
         price: '1.99',
