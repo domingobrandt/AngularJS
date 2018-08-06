@@ -1,6 +1,6 @@
 $lt-gray: #ddd;
 $background-dark: rgb(247, 7, 67);
-$background-light: rgb(141, 48, 5);
+$background-light: rgb(248, 91, 18);
 $background-pale: #D1C4E9;
 
 @mixin zero-margin($pad-up-down, $pad-left-right) {
@@ -21,4 +21,7 @@ $background-moredark: #4527A0;
 
 .active {
     background: $background-moredark;
+}
+.colorheader{
+    background: #4527A0
 }
