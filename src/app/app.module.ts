@@ -7,7 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms'; 
 import {MatToolbarModule,/* , MatDatepickerModule, ,
-  , MatRadioModule,  MatSliderModule,*/} from '@angular/material'; 
+  , MatRadioModule,*/} from '@angular/material'; 
+import {MatSliderModule} from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -55,7 +56,7 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     FormsModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,
     MatSelectModule,MatSlideToggleModule,ReactiveFormsModule,
-    MatProgressSpinnerModule,
+    MatProgressSpinnerModule, MatSliderModule,
   ],
   providers: [DishService,PromotionService,LeaderService],
   entryComponents:[

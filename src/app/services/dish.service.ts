@@ -5,6 +5,7 @@ import { DISHES } from '../shared/dishes';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/delay";
 import 'rxjs/add/observable/of';
+//import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
 
 
@@ -13,9 +14,11 @@ import 'rxjs/add/observable/of';
 })
 export class DishService {
  
-  constructor() { }
+  constructor(
+  ) { }
   getDishes(): Observable<Dish[]> {
     return Observable.of(DISHES).delay(1000);
+    
   }
 
   getDish(id: number): Observable<Dish> {
