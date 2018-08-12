@@ -34,7 +34,7 @@ formErrors = {
 
 validationMessages = {
   'comment': {
-    'required':      'Comment is required.'
+    'required':      'Comment is required. cannot be more that 250 characters'
   },
   'author' : {
     'required' : 'Name is required',
@@ -67,9 +67,9 @@ validationMessages = {
 
     createForm() {
       this.commentForm = this.fb.group({
-        author: ['', [ Validators.required, Validators.minLength(2) ] ],
+        author: ['', [ Validators.required, Validators.minLength(2), Validators.maxLength(25) ] ],
         rating: 5,
-        comment: ['', Validators.required]
+        comment: ["", [Validators.required, Validators.maxLength(250)]]
       }); 
 
       this.commentForm.valueChanges
