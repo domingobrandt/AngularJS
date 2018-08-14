@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,  } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Dish } from "../shared/dish";
 import {DishService} from "../services/dish.service";
 import { Params, ActivatedRoute } from '@angular/router';
@@ -48,12 +48,10 @@ validationMessages = {
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder,
-    
-    ){ 
-      this.createForm();
-    }
+    @Inject('BaseURL') private BaseURL) { }
  
     ngOnInit() {
+      this.createForm();
       this.dishservice.getDishIds()
      .subscribe(dishIds => this.dishIds = dishIds);
       this.route.params
