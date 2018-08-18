@@ -35,7 +35,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
-//import { ProcessHTTPMsgService } from "./services/process-httpmsg.service";
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/rest-config';
+import { ProcessHTTPMsgService } from "./services/process-httpmsg.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +61,9 @@ import { baseURL } from './shared/baseurl';
     FormsModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,
     MatSelectModule,MatSlideToggleModule,ReactiveFormsModule,
     MatProgressSpinnerModule, MatSliderModule,
-    HttpClientModule,
+    HttpClientModule,RestangularModule.forRoot(RestangularConfigFactory),
   ],
-  providers: [DishService,PromotionService,LeaderService, {provide: 'BaseURL', useValue: baseURL},/*ProcessHTTPMsgService*/],
+  providers: [DishService,PromotionService,ProcessHTTPMsgService, LeaderService, {provide: 'BaseURL', useValue: baseURL},/*ProcessHTTPMsgService*/],
   entryComponents:[
     LoginComponent
   ],

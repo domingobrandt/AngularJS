@@ -23,6 +23,7 @@ dishIds: number[];
 prev: number;
 next: number;
 errMess: string;
+dishErrMess: string;
 comment: Comment;
 commentForm: FormGroup;
 
@@ -53,13 +54,13 @@ validationMessages = {
     ngOnInit() {
       this.createForm();
       this.dishservice.getDishIds()
-     .subscribe(dishIds => this.dishIds = dishIds,errmess => this.errMess = <any>errmess);
+     .subscribe(dishIds => this.dishIds = dishIds, errmess => this.dishErrMess = <any>errmess.message);
       this.route.params
         .pipe(switchMap((params: Params) => this.dishservice.getDish(+params['id'])))
         .subscribe(dish => { 
             this.dish = dish; 
             this.setPrevNext(dish.id), 
-            errmess => this.errMess = <any>errmess;
+            errmess => this.dishErrMess = <any>errmess.message;
           });
         }
 
