@@ -50,7 +50,13 @@
           <p mat-line>
             <span class="tumb">-- {{comment.author}} {{ comment.date | date }}</span>
           </p></mat-list-item>
+          <mat-list-item *ngIf="commentForm.valid">
+            <p mat-line>{{commentForm.value.comment}}</p>
+            <p mat-line>{{commentForm.value.rating}} Stars</p>
+            <p mat-line>--{{commentForm.value.author}}  <span></span></p>
+          </mat-list-item>
        </mat-list>
+
        <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="example-form">
          <p>
             <mat-form-field class="half-width">

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, ViewChild } from '@angular/core';
 import { Dish } from "../shared/dish";
 import {DishService} from "../services/dish.service";
 import { Params, ActivatedRoute } from '@angular/router';
+
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { Comment } from '../shared/comment';
@@ -17,6 +18,7 @@ import * as moment from 'moment';
 
 
 export class DishdetailComponent implements OnInit {
+  @ViewChild('cform') commentFormDirective;
 
 dish:Dish;
 dishIds: number[];
@@ -26,6 +28,7 @@ errMess: string;
 dishErrMess: string;
 comment: Comment;
 commentForm: FormGroup;
+dishcopy = null;
 
 formErrors = {
   'author': '',
@@ -56,12 +59,11 @@ validationMessages = {
       this.dishservice.getDishIds()
      .subscribe(dishIds => this.dishIds = dishIds, errmess => this.dishErrMess = <any>errmess.message);
       this.route.params
-        .pipe(switchMap((params: Params) => this.dishservice.getDish(+params['id'])))
-        .subscribe(dish => { 
-            this.dish = dish; 
-            this.setPrevNext(dish.id), 
-            errmess => this.dishErrMess = <any>errmess.message;
-          });
+      .pipe(switchMap((params: Params) => { return this.dishservice.getDish(+params['id']); }))
+      .subscribe(dish => { 
+              this.dish = dish; this.dishcopy = dish;
+               this.setPrevNext(dish.id); },
+               errmess => { this.dishErrMess = null; this.errMess = <any>errmess; });
         }
 
     createForm() {
@@ -77,8 +79,12 @@ validationMessages = {
     }
     
     onSubmit() {
-      this.comment['date'] = new Date().toISOString();;
-      this.dish.comments.push(this.comment);  
+      this.comment = this.commentForm.value;
+      this.comment['date'] = new Date().toISOString();
+      console.log(this.comment);
+      this.dishcopy.comments.push(this.comment);
+      this.dishcopy.save()
+      .subscribe(dish => { this.dish = dish; console.log(this.dish); });
       this.commentForm.reset({
         author: '',
         rating: 5,
