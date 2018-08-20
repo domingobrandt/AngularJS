@@ -39,6 +39,8 @@ import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/rest-config';
 import { ProcessHTTPMsgService } from "./services/process-httpmsg.service";
 import { HighlightDirective } from './directives/highlight.directive';
+import { FeedbackService } from './services/feedback.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     MatProgressSpinnerModule, MatSliderModule,
     HttpClientModule,RestangularModule.forRoot(RestangularConfigFactory),
   ],
-  providers: [DishService,PromotionService,ProcessHTTPMsgService, LeaderService, {provide: 'BaseURL', useValue: baseURL},/*ProcessHTTPMsgService*/],
+  providers: [DishService,PromotionService,ProcessHTTPMsgService, LeaderService,FeedbackService, {provide: 'BaseURL', useValue: baseURL},/*ProcessHTTPMsgService*/],
   entryComponents:[
     LoginComponent
   ],

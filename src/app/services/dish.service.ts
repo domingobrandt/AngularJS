@@ -19,8 +19,7 @@ import { Restangular } from 'ngx-restangular';
 })
 export class DishService {
  
-  constructor(private restangular: Restangular,
-    processHTTPMsgService: ProcessHTTPMsgService) { }
+  constructor(private restangular: Restangular) { }
   getDishes(): Observable<Dish[]> {
     return this.restangular.all('dishes').getList();
   }

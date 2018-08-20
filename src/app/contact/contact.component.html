@@ -40,7 +40,7 @@
       <h3>Send us your Feedback</h3>
       <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
   
-      <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()" class="formu" [@expand]>
+      <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()" class="formu" *ngIf="showform" [@expand]>
         <p>
           <mat-form-field class="half-width">
             <input matInput formControlName="firstname" placeholder="First Name" type="text" class="tumb" required>
@@ -80,5 +80,23 @@
         </p>
         <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
       </form>
+
+    <span *ngIf="showfeedback" [@expand]>
+      <h3>Your submit</h3>
+      <mat-list-item>
+        <p mat-line>First Name: {{submit.firstname}}</p>
+        <p mat-line>Last Name: {{submit.lastname}}</p>
+        <p mat-line>Tel. number: {{submit.telnum}}</p>
+        <p mat-line>Email: {{submit.email}}</p>
+        <p mat-line>Contact you?: {{submit.agree}}</p>
+        <p mat-line>How?: {{submit.contacttype}}</p>
+        <p mat-line>Feedback: {{submit.message}}</p>
+      </mat-list-item>
+    </span>
+      
+     <div *ngIf="showspinner" [@expand]>
+    <mat-spinner></mat-spinner>
+    <h4>Loading... Please wait</h4>
+     </div>
     </div>
 </div>
